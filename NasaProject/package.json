@@ -1,0 +1,19 @@
+{
+  "name": "nasaproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server":"npm run watch --prefix server",
+    "install-server": "npm install --prefix server",
+    "install-client": "npm install --prefix client",
+    "install": "npm run install-server && npm run install-client",
+    "client": "npm start --prefix client",
+    "watch": "npm run server & npm run client",
+    "deploy": "npm run build --prefix client && npm start --prefix server",
+    "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
+    "test": "npm test --prefix server && npm test --prefix client"
+  },
+  "author": "",
+  "license": "ISC"
+}
