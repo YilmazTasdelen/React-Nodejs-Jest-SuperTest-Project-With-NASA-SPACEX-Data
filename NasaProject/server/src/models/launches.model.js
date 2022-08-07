@@ -151,12 +151,16 @@ async function scheduleNewLaunch(launch) {
   await saveLaunch(newLaunch);
 }
 
-async function getAllLaunches() {
+async function getAllLaunches(skip, limit) {
   // console.log('getAllLaunches', await launchesDatabase.find({},
   //   //{ '_id': 0, '__v': 0 } // exclude id and version data from query result
   //   // { '__v': 0 }
   // ));
-  return await launchesDatabase.find({}, { '__v': 0 });
+  return await launchesDatabase
+    .find({}, { '__v': 0 })
+    .sort({ flightNumber: 1 })
+    .skip(skip)
+    .limit(limit);
   //{ '_id': 0, '__v': 0 } // exclude id and version data from query result
   // { '__v': 0 }
   // )
