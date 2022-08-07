@@ -4,7 +4,7 @@
   "description": "Nasa Mission control api",
   "main": "server.js",
   "scripts": {
-    "test": "jest --detectOpenHandles",
+    "test": "jest",
     "test-watch": "jest --watch",
     "watch": "nodemon src/server.js",
     "start": "SET PORT=8001 && node src/server.js",
