@@ -12,7 +12,7 @@ const server = http.createServer(app);
 async function startServer() {
   await mongoConnect();
   await loadPlanetsData(); // get the data from begining cause reading it is async. it may be not finish when we get request. we just make sure that we have data when we start server
-
+  await loadLaunchData();
   server.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
   });
