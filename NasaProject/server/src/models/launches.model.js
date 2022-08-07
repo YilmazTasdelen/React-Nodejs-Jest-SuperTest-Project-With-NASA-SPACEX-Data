@@ -112,6 +112,5 @@ module.exports = {
   getAllLaunches,
   addNewLaunch,
   scheduleNewLaunch,
-  existLaunchWithId,
   abortLaunchById,
 };

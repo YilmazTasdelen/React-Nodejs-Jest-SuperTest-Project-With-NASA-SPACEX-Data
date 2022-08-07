@@ -2,7 +2,6 @@ const {
   getAllLaunches,
   addNewLaunch,
   scheduleNewLaunch,
-  existLaunchWithId,
   abortLaunchById,
 } = require('../../models/launches.model');
 
@@ -33,7 +32,7 @@ async function httpAddNewLaunch(req, res) {
 
 
 
-async function httpAbortLaunch(req, res) {
+async function httpAbroadLaunch(req, res) {
   const launchId = Number(req.params.id);
 
   const existsLaunch = await existsLaunchWithId(launchId);
