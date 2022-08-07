@@ -92,16 +92,20 @@ function addNewLaunch(launch) {
     ));
 }
 
-function existLaunchWithId(launchId) {
-  //console.log(launchId, launches.has(parseInt(launchId)));
-  return launches.has(launchId);
+async function existsLaunchWithId(launchId) {
+  return await findLaunch({
+    flightNumber: launchId,
+  });
 }
+async function abortLaunchById(launchId) {
+  const aborted = await launchesDatabase.updateOne({
+    flightNumber: launchId,
+  }, {
+    upcoming: false,
+    success: false,
+  });
 
-function abortLaunchById(launchId) {
-  const aborted = launches.get(launchId);
-  aborted.upcoming = false;
-  aborted.success = false;
-  return aborted;
+  return aborted.modifiedCount === 1;
 }
 
 module.exports = {
